@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "working"
+    bucket = "terraformexe"
     key = "statefile/terraform.tfstate"
-   region ="us-east-1" 
+   region = var.region 
   }
 }

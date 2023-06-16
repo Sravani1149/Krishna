@@ -1,10 +1,11 @@
 resource "aws_s3_bucket" "mybucket1" {
-    bucket = "working"
+    bucket = var.mybucket1
+    depends_on = [ aws_vpc.myvpc ]
   
 }
 
 
 resource "aws_s3_bucket" "mybucket2" {
-    bucresourceket = "area"
-  
+    bucket = var.mybucket2
+
 }
