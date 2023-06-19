@@ -1,4 +1,3 @@
-provider "aws"
 terraform {
   required_providers {
     aws = {
@@ -6,4 +5,10 @@ terraform {
       version = "5.2.0"
     }
   }
+}
+
+provider "aws" {
+
+region = var.region
+  
 }
