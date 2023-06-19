@@ -4,7 +4,7 @@ output "vpc_id" {
 }
 
 output "vpc-arn" {
-    value = aws-vpc.myvpc.arn
+    value = aws_vpc.myvpc.arn
   
 }
 
