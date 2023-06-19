@@ -68,7 +68,6 @@ resource "aws_security_group" "SGRP" {
     cidr_blocks      = ["0.0.0.0/0"]
     
 
-  tags = {
-    Name = "SGRP"
-  }
+  
+}
 }
