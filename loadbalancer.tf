@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-resource "aws_lb_target_group" "instance" {
-  name        = "TGRP-instance"
-=======
 resource "aws_lb_target_group" "TGRP_instance" {
-  name        = "TGRP_instance"
->>>>>>> refs/remotes/origin/master
+  name        = "TGRP-instance"
   port        = 80
   protocol    = "HTTP"
   target_type = "instance"
   vpc_id      ="${ aws_vpc.myvpc.id}"
 }
+
 
 resource "aws_lb" "NLB" {
   name               = "Network-LB"
@@ -25,14 +21,14 @@ resource "aws_lb" "NLB" {
 }
 
 resource "aws_lb_target_group_attachment" "NLBA" {
-  target_group_arn = aws_lb_target_group.instance.arn
-  target_id        = aws_instance.Krishna.id
+  target_group_arn = "${aws_lb_target_group.TGRP_instance.arn}"
+  target_id        = "${aws_instance.Krishna.id}"
   port             = 80
 }
 
 resource "aws_lb_listener" "NLBL" {
   load_balancer_arn = "${aws_lb.NLB.arn}"
-  port              = "80"
+  port              = 80
   protocol          = "TCP"
 
   default_action {
