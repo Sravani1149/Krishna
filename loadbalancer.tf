@@ -1,13 +1,9 @@
 resource "aws_lb_target_group" "TGRP_instance" {
-<<<<<<< HEAD
   name        = "Target-GRP"
-=======
-  name        = "TGRP-instance"
->>>>>>> refs/remotes/origin/master
   port        = 80
   protocol    = "HTTP"
   target_type = "instance"
-  vpc_id      = aws_vpc.myvpc.id
+  vpc_id      = "${aws_vpc.myvpc.id}"
 }
 
 
@@ -31,23 +27,18 @@ resource "aws_lb_target_group_attachment" "NLBA" {
 }
 
 resource "aws_lb_listener" "NLBL" {
-<<<<<<< HEAD
-  load_balancer_arn = aws_lb.NLB.arn
+  load_balancer_arn = "${aws_lb.NLB.arn}"
 port = 80  
 protocol          = "TCP"
-=======
-  load_balancer_arn = "${aws_lb.NLB.arn}"
-  port              = 80
-  protocol          = "TCP"
+default_action {
+    type = "redirect"
 
->>>>>>> refs/remotes/origin/master
-  default_action {
-    type = "fixed-response"
-
-    fixed_response {
-      content_type = "text/plain"
-      message_body = "Fixed response content"
-      status_code  = "200"
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
     }
   }
-}
+    }
+  
+
