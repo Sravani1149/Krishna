@@ -1,10 +1,10 @@
 resource "aws_vpc" "myvpc" {
-cidr_block = var.vpccidr
-enable_dns_hostnames = "true"
+  cidr_block           = var.vpccidr
+  enable_dns_hostnames = "true"
 
-tags = {
-Name = "VPC1"
-}
+  tags = {
+    Name = "VPC1"
+  }
 }
 resource "aws_internet_gateway" "IGW" {
   vpc_id = aws_vpc.myvpc.id
@@ -22,7 +22,7 @@ resource "aws_route_table" "Public-RT" {
     gateway_id = aws_internet_gateway.IGW.id
   }
 
- tags = {
+  tags = {
     Name = "Public-RT"
   }
 }
@@ -31,7 +31,7 @@ resource "aws_route_table" "Private-RT" {
   vpc_id = aws_vpc.myvpc.id
 
   tags = {
-   
+
     Name = "Private-RT"
   }
 }
@@ -42,7 +42,7 @@ resource "aws_route_table_association" "Public-RTA" {
 }
 
 resource "aws_route_table_association" "Private-RTA" {
-  subnet_id     = aws_subnet.subnet02.id
+  subnet_id      = aws_subnet.subnet02.id
   route_table_id = aws_route_table.Private-RT.id
 }
 
@@ -52,22 +52,22 @@ resource "aws_security_group" "SGRP" {
   vpc_id      = aws_vpc.myvpc.id
 
   ingress {
-    description      = "allow all traffic"
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    
-    
+    description = "allow all traffic"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+
+
   }
 
   egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
 
-  
-}
+
+
+  }
 }

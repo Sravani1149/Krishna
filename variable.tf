@@ -10,7 +10,7 @@ variable "subnet02cidr" {
 variable "region" {
 }
 
-variable "mybucket1" { 
+variable "mybucket1" {
 }
 
 variable "mybucket2" {
