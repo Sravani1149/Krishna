@@ -1,4 +1,4 @@
-resource "aws_lb_target_group" "instance" {
+resource "aws_lb_target_group" "TGRP_instance" {
   name        = "TGRP_instance"
   port        = 80
   protocol    = "HTTP"
@@ -7,7 +7,7 @@ resource "aws_lb_target_group" "instance" {
 }
 
 resource "aws_lb" "NLB" {
-  name               = "Network_LB"
+  name               = "Network-LB"
   internal           = false
   load_balancer_type = "network"
   subnets            = ["${aws_subnet.subnet01.id}"]
@@ -28,7 +28,7 @@ resource "aws_lb_target_group_attachment" "NLBA" {
 resource "aws_lb_listener" "NLBL" {
   load_balancer_arn = "${aws_lb_listener.NLBL.arn}"
   port              = "80"
-  protocol          = "HTTP"
+  protocol          = "TCP"
 
   default_action {
     type = "fixed-response"
