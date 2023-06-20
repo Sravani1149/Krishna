@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 resource "aws_lb_target_group" "instance" {
   name        = "TGRP-instance"
+=======
+resource "aws_lb_target_group" "TGRP_instance" {
+  name        = "TGRP_instance"
+>>>>>>> refs/remotes/origin/master
   port        = 80
   protocol    = "HTTP"
   target_type = "instance"
