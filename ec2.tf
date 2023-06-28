@@ -17,7 +17,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "Krishna" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
-  count = 3
+  
 
   tags = {
     Name = "Instances"
