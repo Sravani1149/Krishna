@@ -29,7 +29,7 @@ resource "aws_lb_target_group_attachment" "NLBA" {
 resource "aws_lb_listener" "NLBL" {
   load_balancer_arn = aws_lb.NLB.arn
 port = 80  
-protocol          = "TCP"
+protocol          = "HTTP"
 default_action {
     type = "redirect"
 
