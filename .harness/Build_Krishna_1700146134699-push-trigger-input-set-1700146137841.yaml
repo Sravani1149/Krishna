@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_Krishna_1700146134699-push-trigger-input-set
+  identifier: Build_Krishna_1700146134699pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_Krishna_1700146134699
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
