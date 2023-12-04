@@ -52,6 +52,7 @@ requiresCompatibilities: []
 networkMode: null
 runtimePlatform:
 cpu: '256'
+
 inferenceAccelerators:
 proxyConfiguration:
 volumes: []
