@@ -1,0 +1,7 @@
+launchType: EC2
+serviceName: <+serviceVariables.serviceName>
+desiredCount: <+serviceVariables.desiredCount>
+networkConfiguration:
+deploymentConfiguration:
+  maximumPercent: 100
+  minimumHealthyPercent: 0
