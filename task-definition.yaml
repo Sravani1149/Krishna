@@ -46,7 +46,7 @@ placementConstraints: []
 memory: '512'
 taskRoleArn: <+serviceVariables.taskExecutionRole>
 compatibilities": ["EXTERNAL","EC2"]
-family: jay-ecs-demo
+family: srav-ecs
 pidMode:
 requiresCompatibilities: []
 networkMode: null
